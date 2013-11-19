@@ -2,6 +2,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Document</title>
+
   </head>
   <body>
     <h1>Message Decoder</h1>
@@ -10,43 +11,9 @@
     <br>
     <button id="decrypt">Unlock</button>
 
-    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
-
-    <script>
-
-      var decoder = {
-        getMessage: function() {
-          var urlsplit = window.location.href.split( '?' );
-          this.cypher = urlsplit[1];
-
-        },
-        getPassword: function() {
-          this.password = prompt("Enter the password");
-        },
-        urltoMessage: function() {
-          this.secretmessage = this.decrypt();
-
-        },
-        replaceMessageWithUrl: function () {
-          document.getElementById("message").value = this.secretmessage;
-        },
-        decrypt: function() {
-          themessage = CryptoJS.AES.decrypt(this.cypher, this.password).toString(CryptoJS.enc.Utf8)
-          return themessage;
-        },
-        unprotect: function() {
-          this.getMessage()
-          this.getPassword()
-          this.urltoMessage()
-          this.replaceMessageWithUrl()
 
 
-
-        }
-      }
-      document.getElementById("decrypt").onclick = function(){
-        decoder.unprotect();
-      }
-    </script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+     <script src="src/decoder.js"></script>
   </body>
 </html>
